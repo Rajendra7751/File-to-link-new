@@ -33,5 +33,6 @@ async def save_file(bot, message: Message):
         reply_markup=InlineKeyboardMarkup(buttons)
     )
     def setup_handlers(bot):
-    # Register your handlers here if needed
-    pass
+    # Placeholder function to prevent import error
+    # Add your handler registrations here later if needed
+    return
