@@ -2,7 +2,7 @@ import asyncio
 from pyrogram import Client
 from aiohttp import web
 from app.config import Config
-from app.handlers import setup_handlers
+#from app.handlers import setup_handlers
 from app.server import web_server
 
 bot = Client(
