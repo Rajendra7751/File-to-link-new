@@ -32,3 +32,6 @@ async def save_file(bot, message: Message):
         f"🎬 **File Name:** `{file_name}`\n📡 **Permanent Links Generated Below**",
         reply_markup=InlineKeyboardMarkup(buttons)
     )
+    def setup_handlers(bot):
+    # Register your handlers here if needed
+    pass
