@@ -5,9 +5,18 @@ import os
 import aiofiles
 from pathlib import Path
 
+# Create downloads folder if not exists
 STREAM_PATH = Path("downloads")
 STREAM_PATH.mkdir(exist_ok=True)
 
+# /start handler
+@Client.on_message(filters.command("start") & filters.private)
+async def start_handler(bot, message: Message):
+    await message.reply_text(
+        "👋 Hello! Send me a file and I will generate a permanent download and stream link for you.\n\nJust upload the file here."
+    )
+
+# Handle file upload and generate links
 @Client.on_message(filters.private & filters.document)
 async def save_file(bot, message: Message):
     downloading = await message.reply_text("📥 Downloading your file...")
@@ -32,4 +41,3 @@ async def save_file(bot, message: Message):
         f"🎬 **File Name:** `{file_name}`\n📡 **Permanent Links Generated Below**",
         reply_markup=InlineKeyboardMarkup(buttons)
     )
-    
