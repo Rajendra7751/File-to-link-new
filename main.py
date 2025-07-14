@@ -1,10 +1,12 @@
 import asyncio
 from pyrogram import Client
 from aiohttp import web
-import app.handlers  # Make sure handlers get registered
+
 from app.config import Config
 from app.server import web_server
+import app.handlers  # Register handlers
 
+# Pyrogram client setup
 bot = Client(
     name="bot",
     api_id=Config.API_ID,
@@ -20,7 +22,7 @@ async def main():
         me = await bot.get_me()
         print(f"✅ Bot @{me.username} started!")
     except Exception as e:
-        print(f"❌ Bot failed to start: {e}")
+        print(f"❌ Failed to start bot: {e}")
         return
 
     try:
@@ -32,10 +34,10 @@ async def main():
         await site.start()
         print(f"🌐 Web server running at http://0.0.0.0:{Config.PORT}")
     except Exception as e:
-        print(f"❌ Web server failed to start: {e}")
+        print(f"❌ Failed to start web server: {e}")
         return
 
-    # Keep it running forever
+    # Keep running forever
     await asyncio.Event().wait()
 
 if __name__ == "__main__":
