@@ -4,6 +4,7 @@ from aiohttp import web
 
 from app.config import Config
 from app.server import web_server
+from app.handlers import *  # ✅ This is required to load your /start and file handlers
 
 # ✅ In-memory session to avoid Render's file system lock issues
 bot = Client(
